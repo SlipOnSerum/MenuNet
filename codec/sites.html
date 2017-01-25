@@ -3,9 +3,29 @@
 <head>
 <meta charset="UTF-8" />
 <title> MenuNet - Sites </title>
+<script>
+  
+function resizeIFrameToFitContent( iFrame ) {
+
+    iFrame.width  = iFrame.contentWindow.document.body.scrollWidth;
+    iFrame.height = iFrame.contentWindow.document.body.scrollHeight;
+}
+
+window.addEventListener('DOMContentReady', function(e) {
+
+    var iFrame = document.getElementById( 'iFrame1' );
+    resizeIFrameToFitContent( iFrame );
+
+    // or, to resize all iframes:
+    var iframes = document.querySelectorAll("iframe");
+    for( var i = 0; i < iframes.length; i++) {
+        resizeIFrameToFitContent( iframes[i] );
+    }
+} );
+  </script>
 </head>
 <body>
 <h2> Search Sites! </h2>
-<iframe src="//launchpad.net.gvsg.cf/codecboots/012/c/index.htm" noborder=true></iframe>
+<iframe src="//launchpad.net.gvsg.cf/codecboots/012/c/index.htm" noborder="true" id="iFrame1"></iframe>
 </body>
 </html>
